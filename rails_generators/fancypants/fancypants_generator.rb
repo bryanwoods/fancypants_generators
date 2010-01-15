@@ -12,6 +12,8 @@ class FancypantsGenerator < Rails::Generator::Base
       m.directory 'public/stylesheets/sass'
       m.directory 'public/stylesheets/sass/fancypants'
       m.directory 'public/stylesheets/sass/fancypants/config'
+      m.directory 'public/images'
+      m.directory 'public/images/icons'
       m.template "layout.html.haml", "app/views/layouts/#{file_name}.html.haml"
       m.file "stylesheet.sass",  "public/stylesheets/sass/#{file_name}.sass"
       m.file "/sass/_config.sass", "public/stylesheets/sass/fancypants/_config.sass"
@@ -23,6 +25,12 @@ class FancypantsGenerator < Rails::Generator::Base
       m.file "/sass/config/_typography.sass", "public/stylesheets/sass/fancypants/config/_typography.sass"
       m.file "/sass/config/_utilities.sass", "public/stylesheets/sass/fancypants/config/_utilities.sass"
       m.file "javascript/fancypants.js", "public/javascripts/fancypants.js"
+      m.file "icons/accept.png", "public/images/icons/accept.png"
+      m.file "icons/error.png", "public/images/icons/error.png"
+      m.file "icons/error_add.png", "public/images/icons/error_add.png"
+      m.file "icons/error_delete.png", "public/images/icons/error_delete.png"
+      m.file "icons/error_go.png", "public/images/icons/error_go.png"
+      m.file "icons/exclamation.png", "public/images/icons/error_exclamation.png"
       m.file "helper.rb", "app/helpers/layout_helper.rb"
     end
   end
