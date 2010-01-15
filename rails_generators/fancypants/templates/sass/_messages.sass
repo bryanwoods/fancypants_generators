@@ -1,0 +1,84 @@
+#flashMessage
+  //IE6 will only apply class colors to "relative" positioned divs
+  :background = !light
+  /*
+  Set position to "fixed" if you want the message to follow scroll, or "relative" 
+  if you prefer to have it inline. Currently, only absolute works for IE6
+  */
+  :position absolute
+  :border-bottom 2px solid
+  :top 0
+  :right 0
+  :z-index 10
+  :padding 0.8em 0.35em
+  :text-align center
+  :width 100%
+  :overflow hidden
+  .message
+    :margin 0 auto
+    :margin-left 1.5em
+    :min-height 15px
+    :padding 0.08em 3em
+  #close
+    :border 2px solid
+    :cursor pointer
+    :right 10px
+    :top 20%
+    :padding 0 0.15em 0.35em
+    :position absolute
+    :width 15px
+  &.success
+    +flash(!success, "accept")
+  &.alert
+    +flash(!alert, "error")
+  &.error
+    +flash(!error, "exclamation")
+
+.errorMessage
+  :display none
+  p
+    :color = !errorText
+  
+.fieldWithErrors
+  :background = "url('/images/icons/exclamation.png') no-repeat 1%" !error
+  :line-height 1.6
+  :padding 5px
+  label
+    :padding-left 1.4em
+
+.checkbox, .radio
+  :float left
+  .fieldWithErrors
+    :background-position 14%
+    :overflow hidden
+    :padding-left 1.4em
+      
+.label
+  .fieldWithErrors
+    label 
+      :padding 0.4em 0
+    
+.file
+  .fieldWithErrors
+    :background-position 1% 42%
+    :padding-left 2em
+
+#errorExplanation
+  :background-color = !error
+  :border = "2px solid" !red
+  :margin-bottom 1.4em
+  :padding-bottom 0.8em
+  :width 97%
+  h2
+    +typeSans
+    :background-color = !red
+    :color #fff
+    :font-size 12px
+    :font-weight bold
+    :padding 0.8em 0.35em 0.8em 1.75em
+    :margin 0
+    :text-align left
+  p 
+    :padding 0.8em 1.75em 0
+  ul
+    :padding-left 1.75em

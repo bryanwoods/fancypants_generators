@@ -1,0 +1,89 @@
+=typeSerif
+  :font-family "Georgia", "Times New Roman", serif
+  
+=typeSans
+  :font-family "Verdana", sans-serif
+
+body
+  +typeSans
+  :font-size 0.815em
+    
+h1
+  +typeSerif
+  :color = !h1
+  :font-size 2.2em
+  :margin 5px 0 10px
+  :letter-spacing 1px
+  :line-height 1.1em
+  
+h2
+  +typeSerif
+  :color = !h2
+  :font-size 1.815em
+  :text-transform uppercase
+  :line-height 1.4em
+  :letter-spacing 3px
+  
+h3
+  :color = !h3
+  :font-size 1.4em
+  
+h4
+  :color = !h4
+  :font-size 1em
+
+a
+  :color = !link
+  :text-decoration none
+  &:hover
+    :text-decoration underline
+  
+p, table, .paginate, label
+  :color = !text
+  :line-height 1.6em
+  :margin 0.5em 0 1.5em
+  
+th
+  :font-size 1.15em
+  :font-weight bold
+    
+ul
+  :list-style-type circle
+  :margin 0.5em 0 1.5em 1.3em
+  li
+    :margin 1em 0
+
+.bold
+  :font-weight bold
+
+.italic
+  :font-style italic
+  
+.underline
+  :text-decoration underline
+  
+#logo
+  +typeSerif
+  :color = !logo
+  :font-size 3.7em
+  
+#top-bar-inner 
+  .tagline
+    :color = !lighter - #222
+    :font-size 1em
+  #nav
+    :font-size 1.3em
+    
+#primary-nav
+  :font-size 1.25em
+
+#secondary-nav
+  :font-size 1.15em
+
+#content 
+  .tagline 
+    h1
+      :font-size 3.5em
+      :margin 0
+ 
+  

@@ -1,0 +1,12 @@
+== WARNING HERE BE DRAGONS, ETC
+
+== Seriously, this doesn't work.
+
+1. rails my_app
+2. cd my_app
+3. script/plugin install git://github.com/bryanwoods/fancypants_generators.git
+4. script/generate fancypants
+5. script/generate scaffold Post title:string body:text
+6. rake db:migrate
+7. ruby script/server
+8. FAIL
