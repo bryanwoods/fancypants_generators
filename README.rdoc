@@ -8,5 +8,8 @@
 4. script/generate fancypants
 5. script/generate scaffold Post title:string body:text
 6. rake db:migrate
-7. ruby script/server
-8. FAIL
+7. Update config/environment.rb with: config.gem "haml"
+8. Delete public/index.html
+9. Delete app/views/layouts/posts.html.erb
+10. ruby script/server
+11. Open your browser to http://localhost:3000/posts
