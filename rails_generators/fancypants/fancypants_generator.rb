@@ -3,7 +3,7 @@ class FancypantsGenerator < Rails::Generator::Base
     super
     @name = @args.first || 'application'
   end
-  
+
   def manifest
     record do |m|
       m.directory 'app/views/layouts'
@@ -34,7 +34,7 @@ class FancypantsGenerator < Rails::Generator::Base
       m.file "helper.rb", "app/helpers/layout_helper.rb"
     end
   end
-  
+
   def file_name
     @name.underscore
   end
