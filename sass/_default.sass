@@ -1,0 +1,136 @@
+//
+  Always add mixins first so styles can be overridden as needed. For instance:
+  top-bar-inner has a +maxWidth mixin applied, which has a default padding of 0 15px, but
+  here additional padding-top specific to the element is also added aftwerward.
+
+body
+  :background = !body
+//basic layout elements
+#wrapper
+  :width 100%
+  #top-bar
+    :background = !topBar
+    :border-bottom = "1px solid" !topBar - #333
+    :height 80px
+    :margin-bottom 30px
+    :padding-top 10px
+    &.tabs
+      :height 100px
+    #top-bar-inner
+      +maxWidth
+      +topBarType
+      :padding 20px 20px 0
+      //IE6 hack (top padding not being respected)
+      :*margin-top 20px
+      :width 940px
+      #logo
+        +logoType
+        :float left
+        :width 260px
+      .tagline
+        :float left
+        :padding-top 5px
+        :width 200px
+      #nav
+        :float right
+        :padding-top 5px
+        a
+          :margin 0 10px
+      //tabbed nav for an admin like area
+      #tabs
+        +roundedTop
+        :background = !tabs
+        :height 30px
+        :margin-top 50px
+        ul
+          :list-style none
+          :margin 0
+        li
+          :float left
+          :display inline
+          :margin-top 3px
+          a
+            :color = !tabLink
+            :display block
+        #primary-nav
+          +primaryNavType
+          ul li
+            +roundedTop
+            :cursor pointer
+            :padding 4px 25px 11px
+            &.active
+              :background = !body
+              :border-bottom = "1px solid" !body
+              a
+                :color = !tabs
+        #secondary-nav
+          +secondaryNavType
+          :float right
+          :margin 2px 10px
+          ul li
+            :float left
+            :padding 0 10px
+        
+  #content
+    +clearfix
+    +maxWidth
+    .tagline
+      +baseLine
+      +contentTaglineType
+      :border-bottom = "1px solid" !border
+      :border-top = "1px solid " !border
+      :padding 9px 0
+      :text-align center
+    #sidebar
+      :float left
+      :width 300px
+      :margin 0 10px
+    #main
+      :float left
+      :width 620px
+      :margin 0 10px
+  #footer
+    :background = !topBar
+    :border-top = "1px solid" !topBar - #333
+    :margin-top 19px
+    :padding 25px 40px
+    :text-align center
+    p
+      :color = !light
+    a
+      :margin 0 10px
+  
+//content elements
+.box
+  +baseLine
+  +borderThin
+  :background = !contentBox
+  :padding 10px
+  
+.actions
+  :border-top = "1px solid" !border
+  :padding-top 20px
+
+//paginate classes based on default output of mislav's will_paginate plugin
+.paginate
+  :float right
+  a
+    +borderThin
+    :margin 0 5px
+    :padding 1px 1px 1px 5px
+    :text-decoration none
+    &:hover
+      :background = !link
+      :border-color = !link
+      :color #fff
+  .next_page
+    :background none
+    :border 0
+  .current
+    :color = !contentBox
+    :background = !link
+    :margin 0 5px
+    :padding 1px 1px 1px 5px
+  .disabled
+    :border none
+    :color #888
