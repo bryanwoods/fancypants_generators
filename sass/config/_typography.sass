@@ -1,3 +1,6 @@
+//Configure some mixins and variables to make the magic happen:
+
+//Set some basic font families
 =typeSerif
   :font-family "Georgia", "Times New Roman", serif
   
@@ -12,22 +15,31 @@
 =baseLine
   :margin = !baseLine 0
 
+//
+  Create a mixin for header vertical rhythm.  This allows font sizes and baseLine heights to be tweaked
+  without disturbing the even spacing between vertical lines. 
+  
+  Right now, this appears to be working very accurately. 
+  Suggest using something like 960gridder bookmarklet if things get whacky and you need to change it.
+       
+=header(!fontSize)
+  :font-size = !fontSize
+  @if !fontSize > !baseLine
+    :line-height = !baseLine/(!fontSize/3)
+    :margin = !baseLine/(!fontSize/3) 0
+  @else
+    :line-height = !baseLine/!fontSize
+    :margin = !baseLine/!fontSize 0
+    
+//Configure Typography:
+
 //apply base typography
 body
   +typeSans
   :font-size = !baseFontSize
   :line-height = !baseLine
 
-//
-  Create a mixin for header tags.  Right now, this only appears to maintain consistant
-  vertical rhythm if the font sizes are set to multiples of the baseFontSize, but I am
-  doing more research and hope to change this soon.
-       
-=header(!fontSize)
-  :font-size = !fontSize
-  :line-height = (!baseLine * !fontSize)/(!baseFontSize * !fontSize)
-  //:margin = (!baseLine * !multiplier)/(!baseFontSize * !multiplier)
-
+//declare some headers
 h1
   +header(36px)
   +typeSerif
@@ -44,6 +56,8 @@ h2
 h3
   +header(16px)
   :color = !h3
+
+//deal with other elements
 
 a
   :color = !link
@@ -64,7 +78,7 @@ th
     
 ul
   :list-style-type circle
-  :margin = !baseLine/2 0 !baseLine*1.5
+  :margin = !baseLine/2 0 !baseLine/2
   :margin-left 15px
   li
     :line-height = !baseLine
@@ -79,26 +93,27 @@ ul
 .underline
   :text-decoration underline
 
-
-//do some black magic  
+//Configure some "less global" type settings
 =logoType
   +typeSerif
   :color = !logo
-  :font-size = !baseFontSize * 4
+  :font-size 48px
   
 =topBarType
   .tagline
     :color = !lighter - #222
-    :font-size = !baseFontSize
+    :font-size = 12px
   #nav
-    :font-size = !baseFontSize * 1.5
+    :font-size = 18px
     
 =primaryNavType
-  :font-size = !baseFontSize * 1.5
+  :font-size = 18px
 
 =secondaryNavType
-  :font-size = !baseFontSize
+  :font-size = 12px
 
 =contentTaglineType
   h1
     +header(48px)
+  h2
+    +header(24px)
